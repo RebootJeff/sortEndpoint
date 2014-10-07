@@ -20,8 +20,8 @@ var sourceMarkup = [
 ];
 
 
-gulp.task('clean:dist', function (cb) {
-  del('dist/**', cb);
+gulp.task('clean', function (cb) {
+  del('public/**/*', cb);
 });
 
 gulp.task('compile:src-scripts', function() {
@@ -61,11 +61,11 @@ gulp.task('jasmine-node', shell.task(['jasmine-node server']));
 
 // run front-end unit tests
 gulp.task('karma', function() {
-  gulp.src(vendorScripts.concat(testScripts, sourceScripts))
+  gulp.src(vendorScripts.concat(sourceScripts))
     .pipe(karma({
       configFile: 'karma.conf.js'
     }));
 });
 
 // compile, watch for changes, start server, and run karma tests
-gulp.task('default', ['clean', 'compile', 'watch', 'server', 'karma']);
+gulp.task('default', ['compile', 'watch', 'server', /*'karma'*/]);
