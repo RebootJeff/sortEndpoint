@@ -6,18 +6,10 @@ var karma   = require('gulp-karma');
 var nodemon = require('gulp-nodemon');
 var shell   = require('gulp-shell');
 
-var sourceScripts = [
-  'client/src/**/*.js',
-  '!**/*_spec.js'
-];
-
-var vendorScripts = [
-  'client/vendor/**/*.js'
-];
-
-var sourceMarkup = [
-  'client/src/**/*.html'
-];
+var karmaTests    = 'client/src/**/*_spec.js';
+var sourceScripts = ['client/src/**/*.js', '!' + karmaTests];
+var vendorScripts = 'client/vendor/**/*.js';
+var sourceMarkup  = 'client/src/**/*.html';
 
 
 gulp.task('clean', function (cb) {
@@ -57,15 +49,18 @@ gulp.task('watch', function() {
 });
 
 // run back-end unit tests
+// Using `jasmine-node server` in terminal provides nicer colors.
 gulp.task('jasmine-node', shell.task(['jasmine-node server']));
 
 // run front-end unit tests
+// TODO: Karma is not watching properly (exits on fail).
+// For now, use `karma start` in terminal instead of `gulp karma`.
 gulp.task('karma', function() {
-  gulp.src(vendorScripts.concat(sourceScripts))
+  gulp.src('client/**/*.js')
     .pipe(karma({
       configFile: 'karma.conf.js'
     }));
 });
 
-// compile, watch for changes, start server, and run karma tests
-gulp.task('default', ['compile', 'watch', 'server', /*'karma'*/]);
+// compile, watch for changes, and start server
+gulp.task('default', ['compile', 'watch', 'server']);
