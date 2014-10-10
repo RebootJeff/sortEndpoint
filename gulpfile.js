@@ -3,6 +3,7 @@ var gulp    = require('gulp');
 var concat  = require('gulp-concat');
 var del     = require('del');
 var karma   = require('gulp-karma');
+var less    = require('gulp-less');
 var nodemon = require('gulp-nodemon');
 var shell   = require('gulp-shell');
 
@@ -10,6 +11,7 @@ var karmaTests    = 'client/src/**/*_spec.js';
 var sourceScripts = ['client/src/**/*.js', '!' + karmaTests];
 var vendorScripts = 'client/vendor/**/*.js';
 var sourceMarkup  = 'client/src/**/*.html';
+var sourceStyles  = 'client/src/main.less';
 
 
 gulp.task('clean', function (cb) {
@@ -28,12 +30,23 @@ gulp.task('compile:vendor-scripts', function() {
     .pipe(gulp.dest('public/js'));
 });
 
+gulp.task('compile:styles', function() {
+  gulp.src(sourceStyles)
+    .pipe(less())
+    .pipe(gulp.dest('public/css'));
+});
+
 gulp.task('compile:markup', function() {
   gulp.src(sourceMarkup)
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('compile', ['compile:src-scripts', 'compile:vendor-scripts', 'compile:markup']);
+gulp.task('compile', [
+  'compile:src-scripts',
+  'compile:vendor-scripts',
+  'compile:markup',
+  'compile:styles'
+]);
 
 gulp.task('server', function() {
   nodemon({ script: 'server/server.js' }).on('restart', function(){
@@ -46,6 +59,7 @@ gulp.task('watch', function() {
   gulp.watch(sourceScripts, ['compile:src-scripts']);
   gulp.watch(vendorScripts, ['compile:vendor-scripts']);
   gulp.watch(sourceMarkup, ['compile:markup']);
+  gulp.watch(sourceStyles, ['compile:styles']);
 });
 
 // run back-end unit tests
