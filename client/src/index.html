@@ -13,10 +13,12 @@
   </head>
   <body ng-app="mainApp">
 
-    <h1>test header</h1>
+    <section class="container-fluid" ng-controller="mainCtrl as main">
 
-    <section ng-controller="testCtrl">
-      {{ test }}
+      <div class="well">
+        {{ main.test }}
+      </div>
+
     </section>
 
     <script src="js/vendor.js"></script>

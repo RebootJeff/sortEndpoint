@@ -22,6 +22,8 @@ app.use(morgan('dev')); // log request/response info to console
 app.route('/api')
   .get(function(req, res, next){
 
+    res.send('I am a message from the server. I come in peace.');
+
   })
   .post(function(req, res, next){
 
@@ -32,4 +34,4 @@ app.route('/api')
 // Start server
 // ============================================================================
 app.listen(8000);
-console.log('Listening on port 8000...');
+console.log('Listening on port 8000 ...');
