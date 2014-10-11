@@ -1,6 +1,10 @@
+// 3rd party dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
+
+// Internal dependencies
+var UsersCtrl = require('./users/usersCtrl');
 
 var app = express();
 
@@ -19,12 +23,8 @@ app.use(morgan('dev')); // log request/response info to console
 // ============================================================================
 // Basic routes
 // ============================================================================
-app.route('/api')
-  .get(function(req, res, next){
-
-    res.send('I am a message from the server. I come in peace.');
-
-  })
+app.route('/api/users')
+  .get(UsersCtrl.query)
   .post(function(req, res, next){
 
   });

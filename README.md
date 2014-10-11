@@ -1,39 +1,26 @@
-# Usage
+# Welcome to the Solution (WIP)
 
-### Run the App
+Most of this coding challenge is open-ended, but there are a few key pieces of code that can get ugly. I have provided an example solution to show how the backend sorting can work with fairly clean code.
 
-Type `gulp` in the terminal. Gulp will then watch for changes in source files and restart the server as necessary.
+## What to look for in Front-End Solution
 
-If there are issues with source code not reaching the client, try cleaning out the public files and re-compiling them with the following terminal commands: `gulp clean` followed by `gulp compile`.
+- Did candidate separate controller logic and service logic correctly?
+- Did candidate avoid abusing $scope.digest()?
+- Did candidate understand how to use `this` with "controller as" syntax?
+- Did candidate write more advanced HTML/CSS?
+  - Did candidate use `form-group` and `form-control` from Bootstrap?
+  - Did candidate use dropdown select menus rather than just input text fields?
 
-### Run the front-end unit tests
 
-Type `karma start` (or maybe `gulp karma` if I got that working) in the terminal.
+## What to look for in Back-End Solution
 
-### Run the back-end unit tests
+- Did candidate provide proper defaults (i.e., ascending order should be default)?
+  - Did candidate write tests to check this requirement?
+- Did candidate modularize code into controller? Did the controller use helpers?
+  - If not, was candidate pressed for time? Did candidate mention, "If I had more time, I would organize the code into separate files for..."?
+- Did candidate validate inputs (i.e., `sortBy`, `order`, and `count`)?
+  - If not, then did candidate manage to write tests that would reveal lack of input validation?
 
-Type `jasmine-node server` in the terminal.
+### Getting the Sorting Correct
 
-# Challenge
-
-- Build endpoint used by GUI to display sorted list of data
-
-### If there is enough time...
-
-- Write unit tests (mostly backend).
-- Enable sorting by more than 1 property (e.g., sort by last name as top priority and first name as secondary priority).
-
-### Afterwards...
-- If there wasn't enough time for unit tests, just describe good test cases.
-- What would you refactor or re-organize if you had more time?
-
-# Expectations
-
-**Do not** worry about fancy sieve algorithms or self-balancing tree data structures. This should be a straightforward exercise that checks full-stack understanding (Angular fundamentals and best practices, AJAX, REST API endpoints, etc. --minus the database).
-
-**Do** worry about writing/refactoring/organizing code so that it is cleaner, more readable, more testable, more maintainable, more DRY, etc.
-
-You can...
-- Add dependencies (especially to the backend) such as Lodash, Q promises, node-http, etc.
-- Organize code by creating folders, Angular sub-modules, Angular services, etc.
-- Use git to show off your sweet, sweet version control skills.
+See `server/users/usersCtrl.js` for example code that will sort based on multiple fields (aka `sortBy`) and based on desired order (e.g., ascending or descending). Some people will struggle to keep code DRY for sorting based on desired order. Normally, comparators just return 1, -1, and 0 as hard-coded values. The trick is to use a variable that is set to 1 or -1 programmatically. Some candidates will struggle because they think the conditions (`if` statements) of the comparator need to change, and that would require writing two different comparators (which is a lot less DRY).
