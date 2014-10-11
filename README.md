@@ -16,7 +16,10 @@ Type `jasmine-node server` in the terminal.
 
 # Challenge
 
-- Build endpoint used by GUI to display sorted list of data
+Build endpoint used by GUI to display sorted list of data. The GUI should allow user to provide options to:
+- Sort by multiple fields (last name, first name)
+- Sort into ascending (default) or descending order
+- Truncate list to first X number of items.
 
 ### If there is enough time...
 
@@ -37,3 +40,10 @@ You can...
 - Add dependencies (especially to the backend) such as Lodash, Q promises, node-http, etc.
 - Organize code by creating folders, Angular sub-modules, Angular services, etc.
 - Use git to show off your sweet, sweet version control skills.
+- Delete/edit existing code.
+
+## Solution
+
+Switch to the solution branch (`git checkout solution`) to see:
+- README with expanded list of expectations and guidance for evaluation
+- Solution for list sorting and truncation
