@@ -13,12 +13,29 @@
   </head>
   <body ng-app="mainApp">
 
-    <section class="container-fluid" ng-controller="mainCtrl as main">
+    <section class="container" ng-controller="mainCtrl as main">
+      <div class="row">
 
-      <div class="well">
-        {{ main.test }}
+        <div class="col-md-6">
+          <h1>Build out form here</h1>
+
+          <form role="form">
+
+            <div class="form-group">
+              <label>Input Stuff:</label>
+              <input class="form-control" type="text" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Go</button>
+
+          </form>
+        </div>
+
+        <div class="col-md-6">
+          <h1>Display results here</h1>
+        </div>
+
       </div>
-
     </section>
 
     <script src="js/vendor.js"></script>
