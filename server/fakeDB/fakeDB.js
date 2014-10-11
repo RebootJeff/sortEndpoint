@@ -1,12 +1,40 @@
 // Read-only data
 var fakeStorage = [
   {
-    firstName: '',
-    lastName: ''
+    firstName: 'Peter',
+    lastName: 'Parker'
   },
   {
-    firstName: '',
-    lastName: ''
+    firstName: 'Clark',
+    lastName: 'Kent'
+  },
+  {
+    firstName: 'Bruce',
+    lastName: 'Wayne'
+  },
+  {
+    firstName: 'Soloman',
+    lastName: 'Grundy'
+  },
+  {
+    firstName: 'Thor',
+    lastName: 'Odinson'
+  },
+  {
+    firstName: 'Prince',
+    lastName: 'Robot IV'
+  },
+  {
+    firstName: 'Tim',
+    lastName: 'Drake'
+  },
+  {
+    firstName: 'Wade',
+    lastName: 'Wilson'
+  },
+  {
+    firstName: 'Bruce',
+    lastName: 'Banner'
   }
 ];
 
