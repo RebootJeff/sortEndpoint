@@ -1,4 +1,3 @@
-// Read-only data
 var fakeStorage = [
   {
     firstName: 'Peter',
@@ -41,7 +40,7 @@ var fakeStorage = [
 var fakeDB = {};
 
 fakeDB.getAll = function() {
-  return fakeStorage.slice();
+  return fakeStorage;
 };
 
 module.exports = fakeDB;
