@@ -40,7 +40,9 @@ var fakeStorage = [
 var fakeDB = {};
 
 fakeDB.getAll = function() {
-  return fakeStorage;
+  // Return a deep copy of the fakeStorage data
+  var clonedData = JSON.stringify(fakeStorage);
+  return JSON.parse(clonedData);
 };
 
 module.exports = fakeDB;
