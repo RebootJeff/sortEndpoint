@@ -1,9 +1,11 @@
 # Challenge
 
 In **1 to 2 hours**, build an app that shows the user a list of data by using AJAX. The AJAX call should hit a RESTful endpoint with the ability to:
-- Sort by multiple fields (last name, first name)
+- Sort by a field (e.g., last name or first name)
 - Sort into ascending (default) or descending order
 - Truncate list to first X number of items.
+
+Build a form that asks the user to specify the sorting field, sorting order, and max number of results. The user should be able to click a button to submit the form and see sorted results.
 
 ## You have 2 options:
 1. Use existing boilerplate (Angular + Node + Express) code to help you build the small app.
@@ -14,8 +16,11 @@ For both options, use the data found in the `fakeStorage` variable defined in `s
 
 ### If there is enough time...
 
-- Write tests (e.g., back-end unit tests).
+- Write tests (e.g., back-end unit tests, automated E2E tests, etc).
 - Enable sorting by more than 1 property (e.g., sort by last name as top priority and first name as secondary priority).
+- Make the front-end look cooler (e.g., use nicer form controls, add animations, use attractive CSS, etc).
+- Add more functionality (e.g., form validation).
+- Include helpful comments/documentation.
 
 # Expectations
 
